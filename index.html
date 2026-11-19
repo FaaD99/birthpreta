@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f3eb">
+  <meta name="description" content="Une invitation à célébrer un anniversaire inoubliable.">
+  <title>Une belle occasion — Invitation d’anniversaire</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f7f3eb;
+      --paper: #fffdf8;
+      --ink: #25352d;
+      --muted: #73796e;
+      --green: #30483a;
+      --green-dark: #20352b;
+      --gold: #b59562;
+      --line: #e7e0d4;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    .topbar {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 26px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+    }
+
+    .brand {
+      font-family: var(--serif);
+      font-size: 19px;
+      letter-spacing: .04em;
+    }
+
+    .topbar nav {
+      display: flex;
+      gap: 30px;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .topbar nav a {
+      text-decoration: none;
+      opacity: .88;
+      transition: opacity .2s;
+    }
+
+    .topbar nav a:hover { opacity: 1; }
+
+    .hero {
+      min-height: 730px;
+      height: min(94vh, 900px);
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+      background:
+        linear-gradient(180deg, rgba(20, 34, 27, .48), rgba(20, 34, 27, .66)),
+        url("birthdayshoot.jpg")
+        center 53% / cover;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(255,255,255,.35);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(760px, 88%);
+      padding: 90px 20px 55px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+    }
+
+    .hero .eyebrow { color: #ead9b9; }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    .hero h1 {
+      margin: 25px 0 16px;
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(58px, 10vw, 112px);
+      line-height: .98;
+      letter-spacing: -.045em;
+    }
+
+    .hero h1 span {
+      display: block;
+      font-size: .48em;
+      font-style: italic;
+      letter-spacing: 0;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      margin: 26px 0 34px;
+      font-size: 13px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .hero-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 17px;
+      padding: 14px 0;
+      border-top: 1px solid rgba(255,255,255,.6);
+      border-bottom: 1px solid rgba(255,255,255,.6);
+      font-family: var(--serif);
+      font-size: 17px;
+      letter-spacing: .08em;
+    }
+
+    .hero-date span { color: #e4c995; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 49px;
+      padding: 0 25px;
+      border: 1px solid var(--green);
+      background: var(--green);
+      color: white;
+      text-decoration: none;
+      font: 600 11px var(--sans);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      transition: background .2s, color .2s, transform .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--green-dark);
+    }
+
+    .button-light {
+      margin-top: 36px;
+      border-color: rgba(255,255,255,.75);
+      background: transparent;
+    }
+
+    .button-light:hover {
+      background: white;
+      color: var(--green-dark);
+    }
+
+    .section {
+      padding: 105px 7%;
+    }
+
+    .intro {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .intro .eyebrow, .section-heading .eyebrow { color: var(--gold); }
+
+    h2 {
+      margin: 17px 0 20px;
+      font: 400 clamp(38px, 5vw, 58px)/1.12 var(--serif);
+      letter-spacing: -.025em;
+    }
+
+    .intro p {
+      max-width: 570px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .ornament {
+      margin: 28px auto;
+      color: var(--gold);
+      font-size: 20px;
+      letter-spacing: .5em;
+    }
+
+    .details {
+      background: var(--paper);
+    }
+
+    .section-heading {
+      margin-bottom: 55px;
+      text-align: center;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1100px;
+      margin: auto;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-card {
+      padding: 43px 28px 47px;
+      text-align: center;
+    }
+
+    .detail-card + .detail-card {
+      border-left: 1px solid var(--line);
+    }
+
+    .detail-icon {
+      margin-bottom: 19px;
+      color: var(--gold);
+      font-size: 23px;
+    }
+
+    .detail-card h3 {
+      margin-bottom: 12px;
+      font: 400 25px var(--serif);
+    }
+
+    .detail-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .schedule {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 26px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .schedule-row:first-child { border-top: 1px solid var(--line); }
+
+    .schedule-time {
+      color: var(--gold);
+      font: 500 18px var(--serif);
+    }
+
+    .schedule-row h3 {
+      margin: 0 0 6px;
+      font: 400 21px var(--serif);
+    }
+
+    .schedule-row p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .countdown-section {
+      padding: 76px 7%;
+      color: white;
+      background: var(--green);
+      text-align: center;
+    }
+
+    .countdown-section .eyebrow { color: #d7bd8c; }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: clamp(23px, 6vw, 72px);
+      margin-top: 30px;
+    }
+
+    .countdown-item strong {
+      display: block;
+      font: 400 clamp(34px, 6vw, 55px) var(--serif);
+    }
+
+    .countdown-item span {
+      display: block;
+      margin-top: 6px;
+      color: #d4d8d1;
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .rsvp {
+      background: var(--paper);
+    }
+
+    .rsvp-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 9%;
+      max-width: 1050px;
+      margin: auto;
+      align-items: start;
+    }
+
+    .rsvp-copy h2 { margin-top: 15px; }
+
+    .rsvp-copy p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    form { display: grid; gap: 17px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      min-height: 47px;
+      padding: 12px 13px;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      outline: none;
+      background: #fff;
+      color: var(--ink);
+      font: 14px var(--sans);
+    }
+
+    textarea {
+      min-height: 95px;
+      resize: vertical;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-note {
+      margin: -5px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .form-message {
+      min-height: 20px;
+      margin: 0;
+      color: var(--green);
+      font-size: 13px;
+    }
+
+    .footer {
+      padding: 35px 7%;
+      color: #d4d8d1;
+      background: var(--green-dark);
+      text-align: center;
+    }
+
+    .footer .brand {
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 11px;
+      letter-spacing: .08em;
+    }
+
+    @media (max-width: 700px) {
+      .topbar { padding: 22px 7%; }
+      .topbar nav { gap: 14px; font-size: 10px; }
+      .topbar nav a:first-child { display: none; }
+      .hero { min-height: 650px; height: 90svh; }
+      .hero::after { inset: 10px; }
+      .section { padding: 77px 7%; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .detail-card { padding: 30px 18px; }
+      .detail-card + .detail-card {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+      .rsvp-layout { grid-template-columns: 1fr; gap: 30px; }
+      .schedule-row { grid-template-columns: 76px 1fr; gap: 14px; }
+    }
+
+    @media (max-width: 430px) {
+      .brand { font-size: 16px; }
+      .topbar nav { gap: 12px; }
+      .hero-date { gap: 10px; font-size: 14px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Retour en haut">Awa · 30</a>
+    <nav aria-label="Navigation principale">
+      <a href="#details">La journée</a>
+      <a href="#programme">Programme</a>
+      <a href="#rsvp">Répondre</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Invitation à l’anniversaire de Awa">
+      <div class="hero-content">
+        <p class="eyebrow">Une journée à célébrer</p>
+        <h1><span>Les 30 ans de</span>Awa</h1>
+        <p class="hero-subtitle">Un anniversaire · des amis · de beaux souvenirs</p>
+        <div class="hero-date">
+          <span>✦</span> Samedi 20 juin 2027 <span>✦</span>
+        </div>
+        <br>
+        <a class="button button-light" href="#rsvp">Confirmer ma présence</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="intro">
+        <p class="eyebrow">Le plaisir de se retrouver</p>
+        <h2>Une nouvelle décennie,<br><em>ça se fête ensemble.</em></h2>
+        <p>
+          J’aimerais célébrer ce joli chapitre entourée des personnes qui comptent.
+          Rejoins-moi pour une soirée douce et joyeuse, entre dîner, musique et
+          quelques surprises.
+        </p>
+        <div class="ornament" aria-hidden="true">✦ ✧ ✦</div>
+      </div>
+    </section>
+
+    <section class="section details" id="details">
+      <div class="section-heading">
+        <p class="eyebrow">À noter dans ton agenda</p>
+        <h2>Les détails</h2>
+      </div>
+
+      <div class="detail-grid">
+        <article class="detail-card">
+          <div class="detail-icon" aria-hidden="true">✧</div>
+          <h3>Quand</h3>
+          <p>Samedi 20 juin 2027<br>À partir de 19 h 00</p>
+        </article>
+        <article class="detail-card">
+          <div class="detail-icon" aria-hidden="true">⌖</div>
+          <h3>Où</h3>
+          <p>Fann Résidence<br>Rue de l'hopital, Dakar</p>
+        </article>
+        <article class="detail-card">
+          <div class="detail-icon" aria-hidden="true">❋</div>
+          <h3>Tenue</h3>
+          <p>Élégant et décontracté<br>Une touche de couleur bienvenue</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="programme">
+      <div class="section-heading">
+        <p class="eyebrow">Au fil de la soirée</p>
+        <h2>Le programme</h2>
+      </div>
+
+      <div class="schedule">
+        <article class="schedule-row">
+          <div class="schedule-time">19 h 00</div>
+          <div>
+            <h3>Accueil & cocktail</h3>
+            <p>On se retrouve autour d’un verre dans le jardin.</p>
+          </div>
+        </article>
+        <article class="schedule-row">
+          <div class="schedule-time">20 h 30</div>
+          <div>
+            <h3>Dîner sous les étoiles</h3>
+            <p>Un dîner convivial, préparé avec amour et de bons produits.</p>
+          </div>
+        </article>
+        <article class="schedule-row">
+          <div class="schedule-time">22 h 00</div>
+          <div>
+            <h3>Gâteau & danse</h3>
+            <p>On souffle les bougies, puis la soirée continue en musique.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="countdown-section">
+      <p class="eyebrow">Le compte à rebours est lancé</p>
+      <div class="countdown" aria-label="Compte à rebours avant la fête">
+        <div class="countdown-item"><strong id="days">—</strong><span>Jours</span></div>
+        <div class="countdown-item"><strong id="hours">—</strong><span>Heures</span></div>
+        <div class="countdown-item"><strong id="minutes">—</strong><span>Minutes</span></div>
+        <div class="countdown-item"><strong id="seconds">—</strong><span>Secondes</span></div>
+      </div>
+    </section>
+
+    <section class="section rsvp" id="rsvp">
+      <div class="rsvp-layout">
+        <div class="rsvp-copy">
+          <p class="eyebrow">Ta réponse est précieuse</p>
+          <h2>Tu viens ?</h2>
+          <p>
+            Merci de répondre avant le 1<sup>er</sup> juin pour que je puisse
+            préparer cette soirée au mieux. J’ai hâte de te retrouver !
+          </p>
+        </div>
+
+        <form id="rsvp-form">
+          <div>
+            <label for="name">Ton nom</label>
+            <input id="name" name="name" type="text" placeholder="Prénom et nom" required>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="attendance">Ta réponse</label>
+              <select id="attendance" name="attendance" required>
+                <option value="">Choisir une réponse</option>
+                <option value="Oui, avec plaisir !">Oui, avec plaisir !</option>
+                <option value="Désolé·e, je ne pourrai pas">Désolé·e, je ne pourrai pas</option>
+              </select>
+            </div>
+            <div>
+              <label for="guests">Nombre de personnes</label>
+              <select id="guests" name="guests">
+                <option value="1">1 personne</option>
+                <option value="2">2 personnes</option>
+                <option value="3">3 personnes</option>
+                <option value="4">4 personnes</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="diet">Allergies ou préférences alimentaires</label>
+            <textarea id="diet" name="diet" placeholder="Dis-moi si je dois prévoir quelque chose"></textarea>
+          </div>
+
+          <button class="button" type="submit">Envoyer ma réponse</button>
+          <p class="form-note">
+            Le bouton ouvrira ton application whatsapp avec ta réponse prête à envoyer.
+          </p>
+          <p class="form-message" id="form-message" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="brand">Awa · 30</div>
+    <p>Au plaisir de célébrer cette belle journée avec toi ✦</p>
+   <br> <p>Réalisée par  PrêtA.</p>
+  </footer>
+
+  <script>
+  // Numéro WhatsApp au format international, sans le signe +.
+  const WHATSAPP_NUMBER = "33612345678";
+
+  // Date et heure de la fête — format : AAAA-MM-JJTHH:MM:SS+02:00
+  const partyDate = new Date("2027-06-20T19:00:00+02:00");
+
+  function updateCountdown() {
+    const remaining = partyDate.getTime() - Date.now();
+
+    if (remaining <= 0) {
+      document.querySelector(".countdown").textContent = "La fête a commencé !";
+      return;
+    }
+
+    document.getElementById("days").textContent =
+      Math.floor(remaining / (1000 * 60 * 60 * 24));
+    document.getElementById("hours").textContent =
+      Math.floor((remaining / (1000 * 60 * 60)) % 24);
+    document.getElementById("minutes").textContent =
+      Math.floor((remaining / (1000 * 60)) % 60);
+    document.getElementById("seconds").textContent =
+      Math.floor((remaining / 1000) % 60);
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  document.getElementById("rsvp-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const form = new FormData(event.currentTarget);
+    const name = form.get("name");
+    const attendance = form.get("attendance");
+    const guests = form.get("guests");
+    const diet = form.get("diet") || "Aucune précision";
+
+    const message =
+      "Bonjour Camille ! Voici ma réponse à ton invitation 🎉\n\n" +
+      "Nom : " + name + "\n" +
+      "Réponse : " + attendance + "\n" +
+      "Nombre de personnes : " + guests + "\n" +
+      "Allergies ou préférences : " + diet + "\n\n" +
+      "À bientôt !";
+
+    document.getElementById("form-message").textContent =
+      "WhatsApp va s’ouvrir avec ta réponse prête à envoyer.";
+
+    const whatsappUrl =
+      "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  });
+</script>
+</body>
+</html>
